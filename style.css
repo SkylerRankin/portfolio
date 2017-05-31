@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Raleway, sans-serif;
+  overflow-x: hidden;
+  color: #3C4C6D;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+}
+
+::selection {
+  background: black;
+  color: white;
+}
+
+#to-top {
+  color: #3C4C6D;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  text-align: center;
+  width: 40px;
+  border: solid #3C4C6D 1px;
+  border-radius: 3px;
+}
+
+#to-top:hover {
+  color: white;
+  background-color: #3C4C6D;
+}
+
+canvas {
+  background: #3C4C6D;
+  z-index: -10;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.col {
+  margin-top: 20px;
+  float: left;
+  width: 50%;
+}
+
+#about-me {
+  top: 50%;
+  transform: translateY(100%);
+}
+
+#title-wrapper {
+  color: white;
+  height: 50%;
+}
+
+.nav-item {
+  color: white;
+  display: inline;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.scroll-link {
+  color: white;
+}
+
+#nav {
+  margin-top: 20px;
+  float: right;
+}
+
+#name-anim {
+  position: absolute;
+}
+
+#title, #title-row, #subtitle {
+  clear: both;
+  text-align: center;
+}
+
+#title-row {
+  font-size: 500%;
+  color: white;
+  margin: 100px auto;
+}
+
+.title {
+  color: white;
+}
+
+#sub-title {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 20%;
+  padding: 20px;
+  border: solid 1px white;
+}
+
+#info {
+  margin: 10px auto;
+  width: 60%;
+  text-align: center;
+  word-wrap: normal;
+}
+
+.subtitle {
+  font-size: 300%;
+  text-align: center;
+}
+
+.description {
+  display: block;
+  width: 50%;
+  margin: 10px auto;
+  text-align: center;
+  height: 130px;
+}
+
+.graphic {
+  display: block;
+  margin: auto;
+}
+
+.gitlink {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.section {
+  margin: 20px 0;
+}
+
+hr {
+  width: 90%;
+  margin: 50px auto;
+  color: #3C4C6D;
+}
+
+#contact {
+  margin: 50px auto;
+  text-align: center;
+  border: solid 1px #3C4C6D;
+  padding: 10px;
+  width: 25%;
+}
+
+.connect {
+  margin: 5px auto;
+  transition: font-size .25s;
+}
+
+.connect:hover {
+  font-size: 200%;
+}
+
+a {
+  text-decoration: none;
+  overflow-y: hidden;
+}
+
+.icon {
+  overflow-y: hidden;
+}
+
+#cursor {
+  animation-name: pulse;
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0% {opacity: 1;}
+  30% {opacity: .2;}
+  100% {opacity: 1;}
+}
