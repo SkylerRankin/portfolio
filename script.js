@@ -1,26 +1,21 @@
 $(document).ready(function() {
   console.log('document loaded');
 
-  var canvas = document.getElementById("name-anim");
+  var canvas = document.getElementById("poly");
   var ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = $("#title-wrapper").height();
-  animations(canvas, ctx);
   $(window).resize(function() {
     canvas.width = window.innerWidth;
+    canvas.height = $("#title-wrapper").height();
   });
 
-  //var canvastimer = setInterval(update, 1000);
+  var canvastimer = setInterval(animations, 10);
   var typetimer = setInterval(addLetters, 250);
-
-  function update() {
-    ctx.fillRect(Math.random()*canvas.width, Math.random()*canvas.height, 10, 10);
-  };
 
   function addLetters() {
     if (!type()) clearInterval(typetimer);
   }
-
   var type = (function(title) {
     var letters = ['S', 'K', 'Y', 'L', 'A', '!', 'E', 'R', ' ', 'R', 'A', 'N', 'K', 'I', 'N'];
     var position = 0;
@@ -44,12 +39,6 @@ $(document).ready(function() {
 
   });
 
-});
 
-function animations(canvas, ctx) {
-  var grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
-  grad.addColorStop(0, 'rgb(60, 76, 109)');
-  grad.addColorStop(1, 'rgb(60, 109, 97)');
-  ctx.fillStyle = grad;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-}
+
+});
