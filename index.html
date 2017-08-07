@@ -6,10 +6,12 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" type="text/css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="script.js"></script>
+    <script src="masonry.js"></script>
     <script src="polygon.js"></script>
+    <script src="script.js"></script>
 
   </head>
+
   <body>
 
   <div id="top"></div>
@@ -27,96 +29,93 @@
 
     </div>
 
-    <hr id='section1'>
-
+    <div id='section1'></div>
     <div id="info-wrapper" class="section">
-      <div class="row">
-        <div class="col">
-          <img class="graphic" style="width: 50%" src="http://i.imgur.com/ZSD5SPh.jpg?1"/>
-        </div>
-        <div class="col" id="about-me">
+      <div style='display: table-row; overflow: hidden; height: 400px;'>
+        <div class='col-2' style='text-align: center; display: table-cell; vertical-align: middle;'>
+          <img class="graphic" style="width: 70%;" src="http://i.imgur.com/ZSD5SPh.jpg?1"/>
+        </div><!--
+        --><div class='col-8' style='text-align: center; display: table-cell; vertical-align: middle;'>
           <div class="subtitle">ABOUT ME</div>
           <div id="info">
-            I am Skyler Rankin, a computer science student to be attending UPenn this fall.
+            I am Skyler Rankin, a computer science student at the University of Pennsylvania.
             I enjoy learning and developing new, simple methods of solving complex problems.
-
+            Feel free to check out some of my projects below and my contact information at the bottom of the page.
           </div>
         </div>
       </div>
-
     </div>
+    </div>
+    <div id='section2'></div>
+    <div class='section'>
 
-    <hr id='section2'>
-
-    <div id="portfolio-wrapper" class="section">
-      <div class="subtitle">MY WORK</div>
-
-      <div class="row">
-        <div class="col">
-          <div class="subtitle">Super Mario Bros. 1-1</div>
-          <div class="description">
-            A replication of the first level of the first Mario game. Written in Java,
-            spritesheets created in Photoshop. The speed is way faster than the original,
-            but that's only because the original is painfully slow....
-          </div>
+      <div class='grid-main'>
+        <div class="grid-item grid-item--width3">
+          <h3 style='text-align: center'>Super Mario Bros. 1-1</h3>
+          <hr class='divider'>
+          A replication of the first level of the first Mario game. Written in Java,
+          spritesheets created in Photoshop. It runs at a much higher fps than the original just so its more enjoyable to play.
+          <div class="gitlink"><a href="https://github.com/SkylerRankin/MarioLevelOne" target="_blank">Repository</a></div>
           <img class="graphic" src="http://i.imgur.com/PRBJJNm.gif"/>
-          <div class="gitlink"><a href="https://github.com/SkylerRankin/MarioLevelOne" target="_blank">github</a></div>
         </div>
-        <div class="col">
-          <div class="subtitle">Tree Simulation</div>
-          <div class="description">
-            A generation of trees based on a two branch fractal system.
-            The relative widths, lengths, and angles can be adjusted. Java.
-          </div>
-          <img class="graphic" src="http://i.imgur.com/wyXAkWU.gif"/>
+        <div class='gutter'></div>
+        <div class="grid-item grid-item--width3">
+          <h3 style='text-align: center'>Fractal Trees</h3>
+          <hr class='divider'>
+          A generator for creating two branch fractals of n levels. With the sliders at the bottom of the interface,
+          the starting width and length can be adjusted, as well as the angle between each branch and its connecting
+          two branches. This is written in Java.
           <div class="gitlink"><a href="https://github.com/SkylerRankin/twobranchtree" target="_blank">github</a></div>
+          <img class="graphic" src="http://i.imgur.com/wyXAkWU.gif"/>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <div class="subtitle">Pi Calculator</div>
-          <div class="description">
-            Provides a display for a few summations that converge at pi.
-            The summation formula, delay between calculations and skipped
-            iterations can be changed while the value of n is automatically
-            updated. Corrected digits are displayed in white text.
-          </div>
-          <img class="graphic" src="http://i.imgur.com/JdLGja1.gif"/>
-          <div class="gitlink"><a href="https://github.com/SkylerRankin/pi" target="_blank">github</a></div>
-        </div>
-        <div class="col">
-          <div class="subtitle">Connected Particles</div>
-          <div class="description">
-            A graphic of particles connected by colored lines. The mouse acts as
-            point of repulsion for the particles. Lines farther apart are connected
-            by more faint lines.
-          </div>
-          <img class="graphic" src="http://i.imgur.com/GZhylD7.gif"/>
-          <div class="gitlink"><a href="https://github.com/SkylerRankin/coloredparticles" target="_blank">github</a></div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <div class="subtitle">Sudoku Solver</div>
-          <div class="description">
-            Utilize backtracking to solve sudoku puzzles.
-          </div>
-          <img class="graphic" src="http://i.imgur.com/2uUs9Kn.gif"/>
-          <div class="gitlink"><a href="https://github.com/SkylerRankin/sudokusolver" target="_blank">github</a></div>
-        </div>
-        <div class="col">
-          <div class="subtitle">Performance Graphs</div>
-          <div class="description">
-            Show live examples of 'big o notation' as it applies to various common functional structures.
-          </div>
-          <img class="graphic" src="http://i.imgur.com/B7fbgC3.gif"/>
+        <div class="grid-item grid-item--width3">
+          <h3 style='text-align: center'>Performance Graphing</h3>
+          <hr class='divider'>
+            Provides a visualization to see if algorithms follow 'big o notation' as they would in theory. The tests are as follows:
+            for constant performance, a truth check O(1); for linear performance, a linear search O(n); for quadratic performance,
+            a duplicate value check on two arrays O(n^2); for exponential performance decay, Fibbonaci number calculation O(2^n);
+            and finally for logarithmic performance, a binary Search on sorted list O(log(n)).
           <div class="gitlink"><a href="https://github.com/SkylerRankin/BigOGraph" target="_blank">github</a></div>
+          <img class="graphic" src="http://i.imgur.com/Fsn0oFk.gif"/>
+        </div>
+        <div class="grid-item grid-item--width3">
+          <h3 style='text-align: center'>Sudoku Solver</h3>
+          <hr class='divider'>
+            Brute forces any sudoku puzzle with the highly effective recursive-backtracking technique. Using the animation option allows
+            you to see the algorithm work as it checks if values are part of a valid solution or not.
+          <div class="gitlink"><a href="https://github.com/SkylerRankin/sudokusolver" target="_blank">github</a></div>
+          <img class="graphic" src="http://i.imgur.com/9pIGxad.gif"/>
+        </div>
+        <div class="grid-item grid-item--width3">
+          <h3 style='text-align: center'>This Page</h3>
+          <hr class='divider'>
+            Masonry.js was used to make the tiling very simple. The rest of the animations/movements/layouts are javascript with jquery.
+          <div class="gitlink"><a href="https://github.com/SkylerRankin/portfolio" target="_blank">github</a></div>
+        </div>
+
+        <div class="grid-item grid-item--width3">
+          <h3 style='text-align: center'>Text Editor</h3>
+          <hr class='divider'>
+            A simple Java text editor. Features include opening, saving, and editing system text files, changing font size,
+            finding occurrences of a string, replacing all occurrences of a string, and setting word-wrapping.
+          <div class="gitlink"><a href="https://github.com/SkylerRankin/SimpleTextEditor" target="_blank">github</a></div>
+          <img class="graphic" src="http://i.imgur.com/tox9Md0.gif"/>
+        </div>
+        <div class="grid-item grid-item--width3">
+          <h3 style='text-align: center'>Pi Summations</h3>
+          <hr class='divider'>
+            A visualization for various summations that converge at pi.
+          <div class="gitlink"><a href="https://github.com/SkylerRankin/pi" target="_blank">github</a></div>
+          <img class="graphic" src="http://i.imgur.com/DYYrXoj.gif"/>
+        </div>
+        <div class="grid-item grid-item--width3">
+          <h3 style='text-align: center'>Particle Field</h3>
+          <hr class='divider'>
+          A field of moving particles influenced by the force of the mouse.
+          <div class="gitlink"><a href="https://github.com/SkylerRankin/coloredparticles" target="_blank">github</a></div>
+          <img class="graphic" src="http://i.imgur.com/GZhylD7.gif"/>
         </div>
       </div>
-
-    </div>
 
     <hr id='section3'>
 

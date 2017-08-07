@@ -61,6 +61,7 @@ function node(_x, _y, _z, center){
     ctx.beginPath();
     ctx.arc(this.x, this.z + center.z, this.y.map(130, 500, 1, 4), 0, Math.PI*2);
     //ctx.arc(this.x, this.z + center.z, 10, 0, Math.PI*2);
+    ctx.closePath();
     ctx.fill();
   };
 
@@ -96,10 +97,12 @@ function animations() {
   //ctx.lineWidth = .2;
 
   for (var i=0; i < lines.length; i+=2) {
+
     ctx.lineWidth = nodes[lines[i]].y.map(90, 490, .1, .5);
     ctx.beginPath();
     ctx.moveTo(nodes[lines[i]].x, nodes[lines[i]].z+center.z);
     ctx.lineTo(nodes[lines[i+1]].x, nodes[lines[i+1]].z+center.z);
+    ctx.closePath();
     ctx.stroke();
   }
 
