@@ -29,9 +29,14 @@ $(document).ready(function() {
   })($("#name"));
 
   setBorders();
+  //$('.grid-main').masonry('layout');
+  //$('.grid-top').masonry('layout');
+});
+
+$(window).on('load', function() {
+  setBorders();
   $('.grid-main').masonry('layout');
   $('.grid-top').masonry('layout');
-
 });
 
 function styling() {
