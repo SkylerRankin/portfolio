@@ -56,7 +56,7 @@ function listeners() {
     $(".grid-sizer").css("width", w);
     $(".grid-item").css("width", w);
     $('.grid').masonry({ itemSelector: '.grid-item', columnWidth: ".grid-sizer", percentPosition: true, gutter: 10});
-    
+
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     ctx.fillStyle = "#40798C";
@@ -72,8 +72,9 @@ function listeners() {
 }
 
 function loadTiles() {
-  $.getJSON("https://skylerrankin.github.io/portfolio/project_data.json", function(data) {
+  $.getJSON("https://raw.githubusercontent.com/SkylerRankin/portfolio/gh-pages/project_data.json", function(data) {
     let wrapper = document.getElementById("tiles");
+    console.log("loading project tiles");
     data.forEach(function(tile) {
 
       let root = document.createElement("div");
@@ -104,11 +105,15 @@ function loadTiles() {
       wrapper.appendChild(root);
     });
 
-    let w = ($("#tiles").width() - 20) / 3;
-    $(".grid-sizer").css("width", w);
-    $(".grid-item").css("width", w);
-    $('.grid').masonry({ itemSelector: '.grid-item', columnWidth: ".grid-sizer", percentPosition: true, gutter: 10});
-});
+
+
+    $("#tiles").imagesLoaded(function() {
+      let w = ($("#tiles").width() - 20) / 3;
+      $(".grid-sizer").css("width", w);
+      $(".grid-item").css("width", w);
+      $('.grid').masonry({ itemSelector: '.grid-item', columnWidth: ".grid-sizer", percentPosition: true, gutter: 10});
+    });
+  });
 }
 /*
 
