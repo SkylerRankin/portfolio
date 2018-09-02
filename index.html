@@ -5,137 +5,62 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway" type="text/css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="masonry.js"></script>
-    <script src="polygon.js"></script>
+    <script src="https://masonry.desandro.com/masonry.pkgd.js"></script>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <!--<script src="masonry.js"></script>-->
+    <script src="circuit.js"></script>
     <script src="script.js"></script>
-
   </head>
 
   <body>
 
-  <div id="top"></div>
-
-  <a id="to-top" class="scroll-link" href="#top">TOP</a>
-
-    <div id="title-wrapper">
-      <canvas id="poly">Loading...</canvas>
-      <ul id="nav">
-        <li class="nav-item"><a class="scroll-link" href="#section1">About</a></li>
-        <li class="nav-item"><a class="scroll-link" href="#section2">Portfolio</a></li>
-        <li class="nav-item"><a class="scroll-link" href='#section3'>Contact</a></li>
-      </ul>
-      <div id="title-row"><span class="title">C:\Users\</span><span class="title" id="name"></span><span class="title" id="cursor">_</span></div>
-
-    </div>
-
-    <div id='section1'></div>
-    <div id="info-wrapper" class="section">
-      <div style='display: table-row; overflow: hidden; height: 400px;'>
-        <div class='col-2' style='text-align: center; display: table-cell; vertical-align: middle;'>
-          <img class="graphic" style="width: 70%;" src="http://i.imgur.com/ZSD5SPh.jpg?1"/>
-        </div><!--
-        --><div class='col-8' style='text-align: center; display: table-cell; vertical-align: middle;'>
-          <div class="subtitle">ABOUT ME</div>
-          <div id="info">
-            I am Skyler Rankin, a computer science student at the University of Pennsylvania.
-            I enjoy learning and developing new, simple methods of solving complex problems.
-            Feel free to check out some of my projects below and my contact information at the bottom of the page.
-          </div>
-        </div>
+    <div id="title_wrapper">
+      <canvas id="canvas">Loading canvas...</canvas>-
+      <div id="title">
+        <span id="name"></span><span id="cursor">|</span>
+      </div>
+      <div id="subtitle">
+        <span id="resume" style="opacity: 0" class="subtitle_item">resume</span>
+        <a id="github" style="opacity: 0" class="subtitle_item" href="https://github.com/SkylerRankin" target="_blank">github</a>
+        <a id="email" style="opacity: 0" class="subtitle_item" href="mailto:skylerr@seas.upenn.edu">email</a>
       </div>
     </div>
+
+    <div style="padding: 30px; width: 50%; margin: auto">
+
+      <div class="horizontal">
+        <img src="C:\Users\skyle\Desktop\kyle.jpg" style="height: 300px;"/>
+      </div>
+
+      <div class="horizontal about" style="border: solid 1px black; padding: 10px">
+        <p style="color: #000">It is a dark time for the Rebellion. Although the Death Star has been destroyed, Imperial troops have driven the Rebel forces from their hidden base and pursued them across the galaxy.
+        Evading the dreaded Imperial Starfleet, a group of freedom fighters led by Luke Skywalker has established a new secret base on the remote ice world of Hoth.
+        The evil lord Darth Vader, obsessed with finding young Skywalker, has dispatched thousands of remote probes into the far reaches of space....
+        </p>
+      </div>
+
     </div>
-    <div id='section2'></div>
-    <div class='section'>
 
-      <div class='grid-main'>
-        <div class="grid-item grid-item--width3">
-          <h3 style='text-align: center'>Super Mario Bros. 1-1</h3>
-          <hr class='divider'>
-          A replication of the first level of the first Mario game. Written in Java,
-          spritesheets created in Photoshop. It runs at a much higher fps than the original just so its more enjoyable to play.
-          <div class="gitlink"><a href="https://github.com/SkylerRankin/MarioLevelOne" target="_blank">Repository</a></div>
-          <img class="graphic" src="http://i.imgur.com/PRBJJNm.gif"/>
-        </div>
-        <div class='gutter'></div>
-        <div class="grid-item grid-item--width3">
-          <h3 style='text-align: center'>Sola - A Minimalist 2D Framework</h3>
-          <hr class='divider'>
-          A javascript framework for 2D canvas games, animations, and graphics. Implements essential backend functionality of a working game
-          while providing a simple interface for building on top. 100% editable for customization.
-          <div class="gitlink"><a href="https://github.com/SkylerRankin/Sola" target="_blank">github</a></div>
-          <img class="graphic" src="http://i.imgur.com/BZbK1ga.png"/>
-        </div>
-        <div class="grid-item grid-item--width3">
-          <h3 style='text-align: center'>Fractal Trees</h3>
-          <hr class='divider'>
-          A generator for creating two branch fractals of n levels. With the sliders at the bottom of the interface,
-          the starting width and length can be adjusted, as well as the angle between each branch and its connecting
-          two branches. This is written in Java.
-          <div class="gitlink"><a href="https://github.com/SkylerRankin/twobranchtree" target="_blank">github</a></div>
-          <img class="graphic" src="http://i.imgur.com/wyXAkWU.gif"/>
-        </div>
-        <div class="grid-item grid-item--width3">
-          <h3 style='text-align: center'>Performance Graphing</h3>
-          <hr class='divider'>
-            Provides a visualization to see if algorithms follow 'big o notation' as they would in theory. The tests are as follows:
-            for constant performance, a truth check O(1); for linear performance, a linear search O(n); for quadratic performance,
-            a duplicate value check on two arrays O(n^2); for exponential performance decay, Fibbonaci number calculation O(2^n);
-            and finally for logarithmic performance, a binary Search on sorted list O(log(n)).
-          <div class="gitlink"><a href="https://github.com/SkylerRankin/BigOGraph" target="_blank">github</a></div>
-          <img class="graphic" src="http://i.imgur.com/Fsn0oFk.gif"/>
-        </div>
-        <div class="grid-item grid-item--width3">
-          <h3 style='text-align: center'>Sudoku Solver</h3>
-          <hr class='divider'>
-            Brute forces any sudoku puzzle with the highly effective recursive-backtracking technique. Using the animation option allows
-            you to see the algorithm work as it checks if values are part of a valid solution or not.
-          <div class="gitlink"><a href="https://github.com/SkylerRankin/sudokusolver" target="_blank">github</a></div>
-          <img class="graphic" src="http://i.imgur.com/9pIGxad.gif"/>
-        </div>
-        <div class="grid-item grid-item--width3">
-          <h3 style='text-align: center'>This Page</h3>
-          <hr class='divider'>
-            Masonry.js was used to make the tiling very simple. The rest of the animations/movements/layouts are javascript with jquery.
-          <div class="gitlink"><a href="https://github.com/SkylerRankin/portfolio" target="_blank">github</a></div>
-        </div>
+    <div style="margin: 30px;">
+      <h1 style="text-align: center; width: 200px; margin: auto">Projects</h1>
+      <div id="tiles" class="grid">
+        <div class="grid-sizer"></div>
 
-        <div class="grid-item grid-item--width3">
-          <h3 style='text-align: center'>Text Editor</h3>
-          <hr class='divider'>
-            A simple Java text editor. Features include opening, saving, and editing system text files, changing font size,
-            finding occurrences of a string, replacing all occurrences of a string, and setting word-wrapping.
-          <div class="gitlink"><a href="https://github.com/SkylerRankin/SimpleTextEditor" target="_blank">github</a></div>
-          <img class="graphic" src="http://i.imgur.com/tox9Md0.gif"/>
-        </div>
-        <div class="grid-item grid-item--width3">
-          <h3 style='text-align: center'>Pi Summations</h3>
-          <hr class='divider'>
-            A visualization for various summations that converge at pi.
-          <div class="gitlink"><a href="https://github.com/SkylerRankin/pi" target="_blank">github</a></div>
-          <img class="graphic" src="http://i.imgur.com/DYYrXoj.gif"/>
-        </div>
-        <div class="grid-item grid-item--width3">
-          <h3 style='text-align: center'>Particle Field</h3>
-          <hr class='divider'>
-          A field of moving particles influenced by the force of the mouse.
-          <div class="gitlink"><a href="https://github.com/SkylerRankin/coloredparticles" target="_blank">github</a></div>
+        <div class="grid-item">
+          <h3 class="project-title">Contra Imitation</h3>
+          <p class="project-description">This is an imitation of the old game contra, made in java, with original graphics ripped from the game. made in java
+          with nothing but a swing canvas for drawing</p>
           <img class="graphic" src="http://i.imgur.com/GZhylD7.gif"/>
         </div>
-      </div>
 
-    <hr id='section3'>
-
-    <div id="contact-wrapper" class="section">
-      <div id="contact">
-        <h2>CONTACT ME</h2>
-        <div class="connect"><i class='icon fa fa-envelope-o'><a href="mailto:skylerrankin@gmail.com" target="_blank">  Email</a></i></div>
-        <div class="connect"><i class='icon fa fa-github'><a href="https://github.com/SkylerRankin" target="_blank">  Github</a></i></div>
-        <div class="connect"><i class='icon fa fa-facebook-official'><a href="https://www.facebook.com/people/Skyler-Rankin/100014658940334" target="_blank">  Facebook</a></i></div>
-        <div class="connect"><i class='icon fa fa-codepen'><a href="https://codepen.io/skylerrankin/" target="_blank">  Codepen</a></i></div>
+        <div class="grid-item">laksdjfal;skjdafsdf</div>
+        <div class="grid-item">laksdjfal;skjdafsdf</div>
+        <div class="grid-item">laksdjfal;skjdafsdf</div>
+        <div class="grid-item">laksdjfal;skjdafsdf</div>
+        <div class="grid-item">laksdjfal;skjdafsdf</div>
       </div>
     </div>
 
   </body>
+
 </html>
