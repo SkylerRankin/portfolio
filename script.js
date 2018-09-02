@@ -22,7 +22,7 @@ $(document).ready(function() {
       }
     };
   })($("#name"));
-
+  loadTiles();
 });
 
 function styling() {
@@ -42,7 +42,7 @@ function styling() {
 
   let w = window.innerWidth;
   console.log()
-  $('.grid').masonry({ itemSelector: '.grid-item', columnWidth: ".grid-sizer", percentPosition: true, gutter: 10});
+  //$('.grid').masonry({ itemSelector: '.grid-item', columnWidth: ".grid-sizer", percentPosition: true, gutter: 10});
 
   drawCircuit.start(canvas, ctx, 10);
 };
@@ -52,6 +52,16 @@ function listeners() {
   var ctx = canvas.getContext('2d');
 
   $(window).resize(function() {
+    let w = ($("#tiles").width() - 20) / 3;
+    $(".grid-sizer").css("width", w);
+    $(".grid-item").css("width", w);
+    $('.grid').masonry({ itemSelector: '.grid-item', columnWidth: ".grid-sizer", percentPosition: true, gutter: 10});
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ctx.fillStyle = "#40798C";
+    ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+    drawCircuit.start(canvas, ctx, 10);
   });
 
   $("#resume").on("click", function() {
@@ -62,7 +72,43 @@ function listeners() {
 }
 
 function loadTiles() {
-  
+  $.getJSON("https://skylerrankin.github.io/portfolio/project_data.json", function(data) {
+    let wrapper = document.getElementById("tiles");
+    data.forEach(function(tile) {
+
+      let root = document.createElement("div");
+      root.className = "grid-item";
+
+      let title = document.createElement("h3");
+      title.innerHTML = tile["title"];
+      title.className = "project-title";
+
+      let description = document.createElement("p");
+      description.innerHTML = tile["description"];
+      description.className = "project-description"
+
+      var image = document.createElement("img");
+      image.src = tile["image"];
+      image.className = "project-image";
+
+      var link = document.createElement("a");
+      link.className = "project-link";
+      link.innerHTML = tile["link"];
+      link.href = tile["link"];
+      link.target = "_blank";
+
+      root.appendChild(title);
+      root.appendChild(description);
+      root.appendChild(image);
+      root.appendChild(link);
+      wrapper.appendChild(root);
+    });
+
+    let w = ($("#tiles").width() - 20) / 3;
+    $(".grid-sizer").css("width", w);
+    $(".grid-item").css("width", w);
+    $('.grid').masonry({ itemSelector: '.grid-item', columnWidth: ".grid-sizer", percentPosition: true, gutter: 10});
+});
 }
 /*
 

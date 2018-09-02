@@ -1,6 +1,7 @@
 var drawCircuit = (function() {
   let interval;
   let points = [];
+  let first = [];
   let dir = [];
   let speed = 1;
   let count = 0;
@@ -9,12 +10,24 @@ var drawCircuit = (function() {
   let wait = [];
   let joints = [];
 
-  for (let i=0; i<50; ++i) {
-    let f = {x: Math.random()*window.innerWidth, y: Math.random()*window.innerHeight};
-    points.push(f);
-    joints.push(f);
-    dir.push(dirs[Math.round(Math.random()*3)]);
-    wait[i] = 0;
+  var init = function() {
+    clearInterval(interval);
+    points = [];
+    first = [];
+    dir = [];
+    speed = 1;
+    count = 0;
+    max = 1000;
+    wait = [];
+    joints = [];
+    for (let i=0; i<50; ++i) {
+      let f = {x: Math.random()*window.innerWidth, y: Math.random()*window.innerHeight};
+      points.push(f);
+      first.push({x: f.x, y: f.y});
+      joints.push(f);
+      dir.push(dirs[Math.round(Math.random()*3)]);
+      wait[i] = 0;
+    }
   }
 
   var step = function(canvas, ctx) {
@@ -29,7 +42,7 @@ var drawCircuit = (function() {
 
       if (Math.random() < .01 && wait[i] == 0) {
         let change = dirs[Math.round(Math.random()*3)];
-        while (dir[i].x == change.x && dir[i].y == change.y)
+        while (dir[i].x == change.x && dir[i].y == change.y && (dir[i].x == change.x && dir[i].y != change.y) && (dir[i].y == change.y && dir[i].x != change.x))
           change = dirs[Math.round(Math.random()*3)];
         joints.push(points[i]);
         dir[i] = change;
@@ -39,8 +52,23 @@ var drawCircuit = (function() {
       }
     }
 
-    if (count >= max)
+    if (count >= max) {
       clearInterval(interval);
+      /*
+      let r = 10;
+      for (let p in points) {
+        ctx.beginPath();
+        ctx.arc(points[p].x + r/2, points[p].y + r/2, r, 0, 2*Math.PI, false);
+        ctx.fillStyle = "#70A9A1";
+        ctx.fill();
+      }
+      for (let f in first) {
+        ctx.beginPath();
+        ctx.arc(first[f].x + r/2, first[f].y + r/2, r, 0, 2*Math.PI, false);
+        ctx.fillStyle = "#70A9A1";
+        ctx.fill();
+      }*/
+    }
   }
 
   var search = function(i) {
@@ -56,8 +84,10 @@ var drawCircuit = (function() {
   }
 
   var start = function(canvas, ctx, d) {
+    init();
     interval = setInterval(function() {step(canvas, ctx)}, d);
   }
+
   return {
     start: start,
     step: step
