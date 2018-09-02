@@ -1,46 +1,37 @@
 [
   {
     "title": "Text Editor",
-    "description": "A simple Java text editor. Features include opening, saving, and editing system text files, changing font size,
-    finding occurrences of a string, replacing all occurrences of a string, and setting word-wrapping.",
+    "description": "A simple Java text editor. Features include opening, saving, and editing system text files, changing font size, finding occurrences of a string, replacing all occurrences of a string, and setting word-wrapping.",
     "image": "http://i.imgur.com/tox9Md0.gif",
     "link": "https://github.com/SkylerRankin/SimpleTextEditor"
   },
   {
     "title": "Super Mario Bros. 1-1",
-    "description": "A replication of the first level of the first Mario game. Written in Java,
-    spritesheets created in Photoshop. It runs at a much higher fps than the original just so its more enjoyable to play.",
+    "description": "A replication of the first level of the first Mario game. Written in Java, spritesheets created in Photoshop. It runs at a much higher fps than the original just so its more enjoyable to play.",
     "image": "http://i.imgur.com/PRBJJNm.gif",
     "link": "https://github.com/SkylerRankin/MarioLevelOne"
   },
   {
     "title": "Sola - A Minimalist 2D Framework",
-    "description": "A javascript framework for 2D canvas games, animations, and graphics. Implements essential backend functionality of a working game
-    while providing a simple interface for building on top. 100% editable for customization.",
+    "description": "A javascript framework for 2D canvas games, animations, and graphics. Implements essential backend functionality of a working game while providing a simple interface for building on top. 100% editable for customization.",
     "image": "http://i.imgur.com/BZbK1ga.png",
     "link": "https://github.com/SkylerRankin/Sola"
   },
   {
     "title": "Fractal Trees",
-    "description": "A generator for creating two branch fractals of n levels. With the sliders at the bottom of the interface,
-    the starting width and length can be adjusted, as well as the angle between each branch and its connecting
-    two branches. This is written in Java.",
+    "description": "A generator for creating two branch fractals of n levels. With the sliders at the bottom of the interface, the starting width and length can be adjusted, as well as the angle between each branch and its connecting two branches. This is written in Java.",
     "image": "http://i.imgur.com/wyXAkWU.gif",
     "link": "https://github.com/SkylerRankin/twobranchtree"
   },
   {
     "title": "Performance Graphing",
-    "description": "Provides a visualization to see if algorithms follow 'big o notation' as they would in theory. The tests are as follows:
-    for constant performance, a truth check O(1); for linear performance, a linear search O(n); for quadratic performance,
-    a duplicate value check on two arrays O(n^2); for exponential performance decay, Fibbonaci number calculation O(2^n);
-    and finally for logarithmic performance, a binary Search on sorted list O(log(n)).",
+    "description": "Provides a visualization to see if algorithms follow 'big o notation' as they would in theory. The tests are as follows: for constant performance, a truth check O(1); for linear performance, a linear search O(n); for quadratic performance, a duplicate value check on two arrays O(n^2); for exponential performance decay, Fibbonaci number calculation O(2^n); and finally for logarithmic performance, a binary Search on sorted list O(log(n)).",
     "image": "http://i.imgur.com/Fsn0oFk.gif",
     "link": "https://github.com/SkylerRankin/BigOGraph"
   },
   {
     "title": "Sudoku Solver",
-    "description": "Brute forces any sudoku puzzle with the highly effective recursive-backtracking technique. Using the animation option allows
-    you to see the algorithm work as it checks if values are part of a valid solution or not.",
+    "description": "Brute forces any sudoku puzzle with the highly effective recursive-backtracking technique. Using the animation option allows you to see the algorithm work as it checks if values are part of a valid solution or not.",
     "image": "http://i.imgur.com/9pIGxad.gif",
     "link": "https://github.com/SkylerRankin/sudokusolver"
   },
