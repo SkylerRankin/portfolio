@@ -4,7 +4,7 @@ a {text-decoration: none;}
 .subtitle_item { margin-right: 30px; margin-left: 30px; font-size: 200%}
 .subtitle_item:hover { color: #ffffff}
 .subtitle_item:hover { color: #FFFFFF }
-.horizontal {float: left; width: 30%; margin: 10px}
+.horizontal {float: left; width: 45%; margin: 10px}
 .about { color: #000;}
 #canvas { position: absolute; }
 #title { font-weight: bold; font-size: 600%; position: absolute; width: 100%; text-align: center; color: #CFD7C7}
