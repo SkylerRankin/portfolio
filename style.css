@@ -4,11 +4,12 @@ a {text-decoration: none;}
 .subtitle_item { margin-right: 30px; margin-left: 30px; font-size: 200%}
 .subtitle_item:hover { color: #ffffff}
 .subtitle_item:hover { color: #FFFFFF }
-.horizontal {float: left; width: 40%; margin: 10px}
+.horizontal {float: left; width: 30%; margin: 10px}
 .about { color: #000;}
 #canvas { position: absolute; }
 #title { font-weight: bold; font-size: 600%; position: absolute; width: 100%; text-align: center; color: #CFD7C7}
 #title_wrapper {width: 100%; height: 100%;}
+#tiles-wrapper { width: 70%; margin: 30px auto;}
 #subtitle { position: absolute; width: 100%; text-align: center; color: #CFD7C7 }
 #cursor { animation-name: pulse; animation-duration: .75s; animation-iteration-count: infinite; color: #CFD7C7}
 @keyframes pulse { 0% {opacity: 1;} 30% {opacity: .2;} 100% {opacity: 1;} }
@@ -16,9 +17,10 @@ a {text-decoration: none;}
 ::-moz-selection { background: #000; color: white; }
 
 .project-title { text-align: center; color: #40798C}
-.project-description { color: #40798C}
+.project-description { color: #40798C; margin-top: 10px; font-size: 90%; margin-bottom: 10px;}
 .project-image { width: 100%; }
 .project-link { color: #40798C }
+.project-date { color: #609db2; font-size: 70%; font-style: italic; margin-left: 10px;}
 
 .grid-sizer { width: 30%; }
 

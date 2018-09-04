@@ -84,6 +84,11 @@ function loadTiles() {
       title.innerHTML = tile["title"];
       title.className = "project-title";
 
+      let date = document.createElement("span");
+      date.innerHTML = tile["date"];
+      date.className = "project-date";
+      title.appendChild(date);
+
       let description = document.createElement("p");
       description.innerHTML = tile["description"];
       description.className = "project-description"
