@@ -2,7 +2,7 @@
   {
     "title": "Huffman Encoding",
     "date": "Aug 2018",
-    "description": "An Android application provides easy encoding of text with the Huffman algorithm, a method of minimally encoding a character set. New dictionaries can be added and shared between users, making the encoded text unreadable to all those who haven't been given the original dictionary, and are of the smallest possible file size in addition.",
+    "description": "An Android application provides easy encoding of text with the Huffman algorithm, a method of minimally encoding a character set. New dictionaries can be added and shared between users, making the encoded text unreadable to all those who haven't been given the original dictionary, and are of the smallest possible file size in addition. ",
     "image": "https://i.imgur.com/pgGwJtX.png",
     "link": "https://github.com/SkylerRankin/Huffman"
   },
