@@ -26,7 +26,7 @@ format = (function() {
         for (let i = 0; i < data.length; ++i) {
             let section = document.createElement("div")
 
-            let title = document.createElement("div")
+            let title = document.createElement("h1")
             title.innerHTML = data[i].Title
             title.className = "title"
             title.id = "project_"+i
