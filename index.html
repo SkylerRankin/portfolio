@@ -1,57 +1,168 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Skyler Rankin</title>
-    <link rel="icon" href="icon.png">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" type="text/css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-    <script src="https://masonry.desandro.com/masonry.pkgd.js"></script>
-    <script src="circuit.js"></script>
-    <script src="script.js"></script>
-  </head>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Skyler Rankin</title>
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-  <body>
+        <style>
+            ::selection { background: #aedfca; }
+            ::-moz-selection { background: #aedfca; }
+            .nav_link { font-family: 'Source Code Pro', monospace; color: black; }
+            .nav_link:hover { color: #aedfca; }
+            .title_sub { font-family: 'Source Code Pro', monospace; }
+            .navbar-item:hover { cursor: pointer; }
+            .centered {  color: white; position: absolute; top: 0; left: 0; right: 0; }
+        </style>
+    </head>
 
-    <div id="title_wrapper">
-      <canvas id="canvas">Loading canvas...</canvas>-
-      <div id="title">
-        <span id="name"></span><span id="cursor">|</span>
-      </div>
-      <div id="subtitle">
-        <span id="resume" style="opacity: 0" class="subtitle_item">resume</span>
-        <a id="github" style="opacity: 0" class="subtitle_item" href="https://github.com/SkylerRankin" target="_blank">github</a>
-        <a id="email" style="opacity: 0" class="subtitle_item" href="mailto:skylerr@seas.upenn.edu">email</a>
-      </div>
-    </div>
-
-    <h1 style="text-align: center; width: 200px; margin: auto; margin-bottom: 30px; margin-top: 30px; color: #40798C">About Me</h1>
-
-    <div style="width: 80%; margin: auto;">
-      <div class="horizontal" style="text-align: center">
-        <img src="profile.jpg" style="height: 300px;"/>
-      </div>
-
-      <div class="horizontal about" style="position: relative;">
-        <p style="color: #40798C; font-size: 90%">
-          Hello, and welcome to my page. I am a sophomore at the University of Pennsylvania's School of Engineering and Applied Sciences, majoring in Computer Science.<br><br>
-          Since middle school, I have been fascinated by the 0s and 1s that make up our digital world. I began writing in AS3 for Flash games, and though HTML5 has all but ended popular usage of Adobe Flash, my self-taught journey continued to other languages, libraries, and frameworks. Years later, I am now comfortable in Java, JavaScript, C#, SQL, HTML5, and CSS, along with working knowledge of Python, R, OCaml.<br><br>
-          Through these, I have gained experience in front-end web development with the NodeJS/Express/MongoDB stack, android development, and design patterns such as MVC, ECS, and Observer. I have also been fortunate enough to gain multiple years of professional experience, ranging from web scraping and geo coding for voter data at the university research level to developing machine learning solutions and chatbots at GP Strategies as an intern.
-          <br><br>
-          Aside from coding, I like to spend my time fishing, hiking, avidly playing basketball, as well as researching and maintaining my full-scale aquaponics system. Listed below are some of the independent projects I have worked on. Feel free to reach out with any suggestions or questions about my work as well as possible work/internship opportunities and general inquiries.
-        </p>
-      </div>
-
-    </div>
-
-    <div id="tiles-wrapper">
-      <h1 style="text-align: center; width: 200px; margin: auto; margin-bottom: 30px; color: #40798C">Projects</h1>
-      <div id="tiles" class="grid">
-        <div class="grid-sizer"></div>
-      </div>
-    </div>
-
-  </body>
-
+    <body>
+        <section class="hero is-fullheight">
+            <div class="hero-head">
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-brand">
+                            <a class="navbar-item" href="../">
+                                <img src="http://bulma.io/images/bulma-type-white.png" alt="Logo">
+                            </a>
+                            <span class="navbar-burger burger" data-target="navbarMenu" id="burger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </div>
+                        <div id="navbarMenu" class="navbar-menu">
+                            <div class="navbar-end">
+                                <span class="navbar-item is-active paged" data-target="pane-1" id="tab-1">
+                                    <a class="nav_link" href="#">
+                                        <span style="color: #aedfca;">HOME</span>
+                                    </a>
+                                </span>
+                                <span class="navbar-item paged" data-target="pane-2" id="tab-2">
+                                    <a class="nav_link" href="#">
+                                        <span>ABOUT</span>
+                                    </a>
+                                </span>
+                                <span class="navbar-item paged" data-target="pane-3" id="tab-3">
+                                    <a class="nav_link" href="#">
+                                        <span>PROJECTS</span>
+                                    </a>
+                                </span>
+                                <span id="resume" class="navbar-item">
+                                    <a class="nav_link" href="#">
+                                        <span>RESUME</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="hero-body">
+                <div class="container">
+                    <div class="tab-content">
+                        <div class="tab-pane" id="pane-1" style="display: block;">
+                            <div class="column is-8 is-offset-2 has-text-centered" style="position: relative;">
+                                <div style="position: relative">
+                                    <canvas id="background_canvas" style="width: 100%; height: 100%; z-index: 0;"></canvas>
+                                    <div class="centered" style="z-index: 1;">
+                                        <span id="home_title" style="font-family: 'Roboto', sans-serif; white-space: nowrap; line-height: 80%; color: #d4efe3;"></span>
+                                    </div>
+                                    <canvas id="foreground_canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane is-active" id="pane-2" style="display: none;">
+                            <div class="column is-8 is-offset-2">
+                                <div class="title" id="time_of_day" style="font-family: 'Roboto';"></div>
+                                <hr>
+                                <div class="columns">
+                                    <div class="column is-half">
+                                        <figure class="image">
+                                            <img src="res/image_square.jpg">
+                                        </figure>
+                                    </div>
+                                    <div class="column is-half">
+                                            I am a Computer Science student at the University of Pennsylvania and have been fortunate enough to intern at GP Strategies the past two summers as well as at Amazon this summer.  Through these experiences, I have learned not only languages and system designs, but also the good practices and work ethic that has forged this modern era of technology. I take pride in producing quality code and believe in hard work and accountability. Aside from coding, I enjoy spending time fishing, maintaining aquariums, and playing basketball.
+                                        <br>
+                                        <br>
+                                        <span class="icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </span>
+                                        <a href="mailto:skylerr@seas.upenn.edu">  skylerr@seas.upenn.edu</a>
+                                        <br>
+                                        <span class="icon">
+                                                <i class="fab fa-github"></i>
+                                        </span>
+                                        <a href="https://github.com/SkylerRankin" target="_blank">  Github</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane is-active" id="pane-3" style="display: none;">
+                            <div class="columns">
+                                <div class="column is-2">
+                                    <aside class="menu">
+                                        <p class="menu-label">
+                                            Projects
+                                        </p>
+                                        <ul class="menu-list">
+                                            <!--INSERT START-->
+                                            <li><a href="#project_0">JPEG Decoding</a></li>
+                                            <li><a href="#project_1">2D Raycasting</a></li>
+                                            <!--INSERT END-->
+                                        </ul>
+                                    </aside>
+                                </div>
+                                <div class="column is-8">
+                                    <!--INSERT START-->
+                                    <div>
+                                        <div class="title" id="project_0">JPEG Decoding</div>
+                                        <div class="subtitle">A walkthough of the JFIF format</div>
+                                        <div>
+                                            <a href="https://github.com/SkylerRankin/JPEG-Decoder" target="_blank"><span class="tag is-link">Github</span></a>
+                                            <span class="tag is-success">Python 3</span>
+                                            <span class="tag is-success">Jupyter Notebook</span>
+                                            <br>
+                                        </div>
+                                        <div>
+                                            <br>
+                                            <figure class="image" style="width: 100%;"><img src="res/jpeg.png" style="width: 60%; float: right; margin-left: 15px; margin-right: 15px; margin-bottom: 15px;"></figure>
+                                            <p>This Jupyter Notebook steps through the process of decoding a JPEG image file. After learning to understand these files byte by byte, its clear that a very high level of engineering and foresight was needed to achieve the stability and efficiency that allows for millions of pixels created by a variety of cameras and applications to be packed into small, uniform files. However, much of the available official documentation for this process is either extremely brief or lacking real world examples; when it comes to procedures like ZRL encoding or Huffman table parsing, it takes more than a few sentences to get all of the details necessary to implement them. As such, I’ve created this repository using simple to understand functions written in Python with custom diagrams for all of the tricky sections. Hopefully this will be useful to anyone looking for an example of how the bytes are parsed in JPEG decoders.</p>
+                                        </div>
+                                        <br style="clear: both;">
+                                        <hr>
+                                    </div>
+                                    <div>
+                                        <div class="title" id="project_1">2D Raycasting</div>
+                                        <div class="subtitle">Transforming 2D Maps into 3D Environments with Ray Casting</div>
+                                        <div>
+                                            <a href="https://github.com/SkylerRankin/Raycast3D" target="_blank"><span class="tag is-link">Github</span></a>
+                                            <span class="tag is-success">Java</span>
+                                            <br>
+                                        </div>
+                                        <div>
+                                            <br>
+                                            <figure class="image" style="width: 100%;"><img src="res/raycast.png" style="width: 60%; float: right; margin-left: 15px; margin-right: 15px; margin-bottom: 15px;"></figure>
+                                            <p>3D graphics algorithms have reached a point where they can be implemented in pretty much every platform efficiently, but there was once a time where vertex buffers and pixel shaders just weren’t in the memory budget of the average computer. In these times, developers created some very clever methods of simulating 3D scenes and objects without actually calculating the distances normally necessary for such a visual. This small Java file implements one such method, 2D ray casting, to simulate a FPS view walking in a 3D maze. The entire file is around 160 lines with no 3D model, and I think gives an awesome effect for so little cost.</p>
+                                        </div>
+                                        <br style="clear: both;">
+                                        <hr>
+                                    </div>
+                                    <!--INSERT END-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="script_min.js"></script>
+        <script src="animation_min.js"></script>
+        <!--<script src="format.js"></script>-->
+    </body>
 </html>
