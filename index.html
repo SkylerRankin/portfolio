@@ -113,9 +113,11 @@
                                         </p>
                                         <ul class="menu-list">
                                             <!--INSERT START-->
-                                            <li><a href="#project_0">JPEG Decoding</a></li>
-                                            <li><a href="#project_1">SM2S</a></li>
-                                            <li><a href="#project_2">2D Raycasting</a></li>
+                                            <li><a href="#project_0">Browser</a></li>
+                                            <li><a href="#project_1">JPEG Decoding</a></li>
+                                            <li><a href="#project_2">Flash Cubes</a></li>
+                                            <li><a href="#project_3">SM2S</a></li>
+                                            <li><a href="#project_4">2D Raycasting</a></li>
                                             <!--INSERT END-->
                                         </ul>
                                     </aside>
@@ -123,7 +125,25 @@
                                 <div class="column is-8">
                                     <!--INSERT START-->
                                     <div>
-                                        <h1 class="title" id="project_0">JPEG Decoding</h1>
+                                        <h1 class="title" id="project_0">Browser</h1>
+                                        <div class="subtitle">An HTML/CSS Renderer</div>
+                                        <div>
+                                            <a href="https://github.com/SkylerRankin/Browser" target="_blank"><span class="tag is-link">Github</span></a>
+                                            <span class="tag is-success">Java</span>
+                                            <span class="tag is-success">HTML</span>
+                                            <span class="tag is-success">CSS</span>
+                                            <br>
+                                        </div>
+                                        <div>
+                                            <br>
+                                            <figure class="image" style="width: 100%;"><img src="res/browser.png" style="width: 60%; float: right; margin-left: 15px; margin-right: 15px; margin-bottom: 15px;"></figure>
+                                            <p>This web browser uses an HTML/CSS renderer I wrote from scratch, drawing to a JavaFX canvas. The first step in the process to render a page is making the HTTP request in an independent thread for the root HTML file. Once this is loaded, it is parsed into a tree structure of the HTML tags. From this structure, a more formal DOM can be assembled. While the DOM is being created, any external resources, such as image references, can start being fetched and processed as well. The next step is to generate the render tree, which contains information used to draw each node. The most interesting part of the render tree is that changing one element has recursive impacts throughout the tree. If a child node grows larger, the parent must grow to fit that size. But if the parent’s size is fixed, say by a CSS rule, then the child must know to make line breaks, overflows, or whatever is specified to fit that constraint. This relationship is handled by a couple of recursive functions that propagate information either upwards or downwards through the tree to make sure the rendering is true to the HTML. At the final step, each node is drawn to the canvas and the webpage is visible. This browser does not include a JavaScript interpreter, so unfortunately many modern webpages are not visible with it. I have, however, added some bookmarks to HTML-only sites that render pretty accurately. </p>
+                                        </div>
+                                        <br style="clear: both;">
+                                        <hr>
+                                    </div>
+                                    <div>
+                                        <h1 class="title" id="project_1">JPEG Decoding</h1>
                                         <div class="subtitle">A walk-through of the JFIF</div>
                                         <div>
                                             <a href="https://github.com/SkylerRankin/JPEG-Decoder" target="_blank"><span class="tag is-link">Github</span></a>
@@ -140,7 +160,26 @@
                                         <hr>
                                     </div>
                                     <div>
-                                        <h1 class="title" id="project_1">SM2S</h1>
+                                        <h1 class="title" id="project_2">Flash Cubes</h1>
+                                        <div class="subtitle">Multi-sided flash cards using cubes</div>
+                                        <div>
+                                            <a href="http://cube-bucket-skylerr.s3-website-us-east-1.amazonaws.com/" target="_blank"><span class="tag is-link">Live Site</span></a>
+                                            <span class="tag is-success">React</span>
+                                            <span class="tag is-success">AWS</span>
+                                            <span class="tag is-success">Lambda</span>
+                                            <span class="tag is-success">DynamoDB</span>
+                                            <br>
+                                        </div>
+                                        <div>
+                                            <br>
+                                            <figure class="image" style="width: 100%;"><img src="res/cubes.PNG" style="width: 60%; float: right; margin-left: 15px; margin-right: 15px; margin-bottom: 15px;"></figure>
+                                            <p>This application provides creates a clean, minimal interface to use through flash cards that have a variable number of sides. I use them in particular for studying Chinese, which allows, for instance, having English, pinyin, characters, and parts of speech for any given word all on the same card. The visual for this is a cube, which I have animated to flip and spin to show the selected side of the cube while blurring the other sides. The webpage is hosted with AWS and using a Lambda function to store user data and accounts in DynamoDB tables. </p>
+                                        </div>
+                                        <br style="clear: both;">
+                                        <hr>
+                                    </div>
+                                    <div>
+                                        <h1 class="title" id="project_3">SM2S</h1>
                                         <div class="subtitle">Simple Money Management System: A serverless web app</div>
                                         <div>
                                             <a href="http://www.sm2s.org" target="_blank"><span class="tag is-link">Live Site</span></a>
@@ -159,7 +198,7 @@
                                         <hr>
                                     </div>
                                     <div>
-                                        <h1 class="title" id="project_2">2D Raycasting</h1>
+                                        <h1 class="title" id="project_4">2D Raycasting</h1>
                                         <div class="subtitle">Transforming 2D Maps into 3D Environments with Ray Casting</div>
                                         <div>
                                             <a href="https://github.com/SkylerRankin/Raycast3D" target="_blank"><span class="tag is-link">Github</span></a>
