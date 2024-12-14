@@ -1,5 +1,8 @@
+// Enables debug UI
+const debug = false;
+
 const controls = {
-    seed: 2,//Date.now(),
+    seed: debug ? 2 : Date.now(),
     vehicleCount: 100,
     largeVehicleOdds: 0.4,
     frameRateQueueSize: 100,
@@ -128,6 +131,12 @@ const init = () => {
     elements.framerate = document.getElementById("framerate");
     elements.updateTime = document.getElementById("updateTime");
     elements.renderTime = document.getElementById("renderTime");
+
+    if (!debug) {
+        elements.framerate.style.display = "none";
+        elements.updateTime.style.display = "none";
+        elements.renderTime.style.display = "none";
+    }
 
     for (let i = 0; i < controls.frameRateQueueSize; i++) {
         state.frameStats.push({
@@ -454,7 +463,7 @@ const render = () => {
         const nextMapPoint = vehicle.path[vehicle.currentPathIndex + 1];
         const connection = map[currentMapPoint].connections.find(x => x.mapPoint == nextMapPoint);
 
-        ctx.fillStyle = vehicle.color;// "#757575";
+        ctx.fillStyle = vehicle.color;
         const a = getBezierAngle(
             map[currentMapPoint],
             connection.controlPoint,
@@ -469,27 +478,30 @@ const render = () => {
         ctx.resetTransform();
 
         ctx.fillStyle = "#000000";
-        // ctx.fillText(`${vehicleIndex}`, vehicle.position.x + rectWidth, vehicle.position.y + rectHeight);
         
-        // const v = getBezierTangent(
-        //     map[currentMapPoint],
-        //     connection.controlPoint,
-        //     map[nextMapPoint],
-        //     vehicle.mapPointProgress
-        // );
-        // v.x *= 100;
-        // v.y *= 100;
-        // ctx.strokeStyle = "#ff0000";
-        // ctx.beginPath();
-        // ctx.moveTo(vehicle.position.x, vehicle.position.y);
-        // ctx.lineTo(vehicle.position.x + v.x, vehicle.position.y + v.y);
-        // ctx.stroke();
+        if (debug) {
+            ctx.fillText(`${vehicleIndex}`, vehicle.position.x + rectWidth, vehicle.position.y + rectHeight);
 
-        // ctx.strokeStyle = "#ff0000";
-        // ctx.beginPath();
-        // ctx.moveTo(vehicle.position.x, vehicle.position.y);
-        // ctx.lineTo(vehicle.position.x + 100, vehicle.position.y);
-        // ctx.stroke();
+            const v = getBezierTangent(
+                map[currentMapPoint],
+                connection.controlPoint,
+                map[nextMapPoint],
+                vehicle.mapPointProgress
+            );
+            v.x *= 100;
+            v.y *= 100;
+            ctx.strokeStyle = "#ff0000";
+            ctx.beginPath();
+            ctx.moveTo(vehicle.position.x, vehicle.position.y);
+            ctx.lineTo(vehicle.position.x + v.x, vehicle.position.y + v.y);
+            ctx.stroke();
+
+            ctx.strokeStyle = "#ff0000";
+            ctx.beginPath();
+            ctx.moveTo(vehicle.position.x, vehicle.position.y);
+            ctx.lineTo(vehicle.position.x + 100, vehicle.position.y);
+            ctx.stroke();
+        }
     
         // Render proximity debug lines
         const nextVehicleIndex = getNextVehicleIndex(vehicleIndex);
@@ -507,38 +519,46 @@ const render = () => {
             } else {
                 ctx.strokeStyle = "#5ab51d";
             }
-            // ctx.beginPath();
-            // ctx.moveTo(vehicle.position.x, vehicle.position.y);
-            // ctx.lineTo(state.vehicles[nextVehicleIndex].position.x, state.vehicles[nextVehicleIndex].position.y);
-            // ctx.stroke();
+
+            if (debug) {
+                ctx.beginPath();
+                ctx.moveTo(vehicle.position.x, vehicle.position.y);
+                ctx.lineTo(state.vehicles[nextVehicleIndex].position.x, state.vehicles[nextVehicleIndex].position.y);
+                ctx.stroke();
+            }
         }
     });
 
     // Render map points
     map.forEach((point, pointIndex) => {
-        // ctx.fillStyle = "#34eb74";
-        // ctx.beginPath();
-        // ctx.arc(point.x, point.y, 5, 0, 2 * Math.PI);
-        // ctx.fill();
+        if (debug) {
+            ctx.fillStyle = "#34eb74";
+            ctx.beginPath();
+            ctx.arc(point.x, point.y, 5, 0, 2 * Math.PI);
+            ctx.fill();
 
-        // // Render the point index
-        // ctx.fillStyle = "#000000";
-        // ctx.fillText(pointIndex, point.x + 5, point.y);
+            // Render the point index
+            ctx.fillStyle = "#000000";
+            ctx.fillText(pointIndex, point.x + 5, point.y);
+        }
 
-        // Render proximity text
-        ctx.fillStyle = "#000000";
-        const currentText = [...state.mapProximity.current[pointIndex]].reduce((prev, curr) => prev + curr + ", ", "current: ");
-        const nextText = [...state.mapProximity.next[pointIndex]].reduce((prev, curr) => prev + curr + ", ", "next: ");
-        // ctx.fillText(currentText, point.x, point.y);
-        // ctx.fillText(nextText, point.x, point.y + 15);
-        
-        // Render control points
-        ctx.fillStyle = "#d4d4d4";
-        point.connections.forEach(connection => {
-            // ctx.beginPath();
-            // ctx.arc(connection.controlPoint.x, connection.controlPoint.y, 3, 0, 2 * Math.PI);
-            // ctx.fill();
-        });
+
+        if (debug) {
+            // Render proximity text
+            ctx.fillStyle = "#000000";
+            const currentText = [...state.mapProximity.current[pointIndex]].reduce((prev, curr) => prev + curr + ", ", "current: ");
+            const nextText = [...state.mapProximity.next[pointIndex]].reduce((prev, curr) => prev + curr + ", ", "next: ");
+            ctx.fillText(currentText, point.x, point.y);
+            ctx.fillText(nextText, point.x, point.y + 15);
+
+            // Render control points
+            ctx.fillStyle = "#d4d4d4";
+            point.connections.forEach(connection => {
+                ctx.beginPath();
+                ctx.arc(connection.controlPoint.x, connection.controlPoint.y, 3, 0, 2 * Math.PI);
+                ctx.fill();
+            });
+        }
     });
 }
 
@@ -572,7 +592,7 @@ const animationStep = timestamp => {
     render();
     const renderEnd = performance.now();
 
-    // updateStats(elapsed, updateEnd - updateStart, renderEnd - updateEnd);
+    if (debug) updateStats(elapsed, updateEnd - updateStart, renderEnd - updateEnd);
 
     if (!state.paused) {
         window.requestAnimationFrame(animationStep);
