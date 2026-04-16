@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+        <title>Skyler Rankin</title>
+        <style>
+            * {
+                font-family: "Roboto Mono", "Courier New", "Courier", monospace;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-size: 14px;
+                font-style: normal;
+            }
+
+            a {
+                color: #1187f5;
+            }
+
+            #container {
+                max-width: 700px;
+                margin: 50px auto;
+                padding: 0px;
+            }
+            #map-container {
+                position: relative;
+                margin-bottom: 50px;
+                overflow: hidden;
+            }
+            .project-section {
+                padding-left: 20px;
+                border-left: solid 4px #c5c5c5;
+            }
+        </style>
+        <script src="../map.js"></script>
+        <script src="../script.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="map-container">
+                <img width="700px" src="../res/map.png" style="display: block;">
+                <canvas id="canvas" width="700" height="200" style="position: absolute; top: 0px; left: 0px;"></canvas>
+            </div>
+            <div>
+                <div style="font-weight: bold;">Photography</div>
+                <div style="font-weight: bold; margin: 40px 0px 20px 0px;">Trips</div>
+                <div class="project-section">
+                    <a href="glacier-2025/" target="_blank">Glacier National Park - 2025</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div id="framerate"></div>
+            <div id="updateTime"></div>
+            <div id="renderTime"></div>
+        </div>
+    </body>
+</html>
